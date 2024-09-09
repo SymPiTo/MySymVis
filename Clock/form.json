@@ -1,0 +1,9 @@
+{
+    "elements": [
+        {
+            "type": "Label",
+            "caption": "Kachel-Konfiguration:",
+            "bold": true
+        }
+    ]
+}

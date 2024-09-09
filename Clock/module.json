@@ -1,0 +1,12 @@
+{
+    "id": "{4A29DBB7-D211-ED70-5DAC-79855592B3FF}",
+    "name": "TileClock",
+    "type": 3,
+    "vendor": "",
+    "aliases": [],
+    "parentRequirements": [],
+    "childRequirements": [],
+    "implemented": [],
+    "prefix": "TC",
+    "url": ""
+}
