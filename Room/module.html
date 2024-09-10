@@ -110,6 +110,18 @@
   box-sizing: border-box;
 }
 
+.pos-room {
+    display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Inhalt zentrieren (horizontal und vertikal) */
+  padding: 0px 0px 10% 0px;
+  width: 60%;
+  height: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
 .right-aligned {
     display: flex;
     flex-direction: row;
@@ -777,44 +789,44 @@
 
 <div class="maindiv1">
     <div class="maindiv2">
-      <div class="left-aligned">
-        <div class="left-aligned2" style="align-items: flex-start">
-        <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
-        <div class="infotext">
-            <span class="hidden" id="infolinksname"></span>
-            <span class="hidden" id="infolinksdoppelpunkt">:&nbsp;</span>
-            <span class="hidden" id="infolinksasso"></span>
-        </div>
-    </div>
-
-    <div class="left-aligned2" style="align-items: center">
-        <div class="iconlinksdiv"><img class="hidden" id="infolinks2icon" src=""></div>
-        <div class="infotext">
-            <span class="hidden" id="infolinks2name"></span>
-            <span class="hidden" id="infolinks2doppelpunkt">:&nbsp;</span>
-            <span class="hidden" id="infolinks2asso">test</span>
-        </div>
-    </div>  
-      </div>
-      <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
-      <div class="right-aligned">
-        <div  class="right-aligned2" style="align-items: center">
-            <div class="iconrechtsdiv"><img class="hidden" id="inforechts2icon" src=""></div>
-            <div class="infotext">
-                <span class="hidden" id="inforechtsname"></span>
-                <span class="hidden" id="inforechtsdoppelpunkt">:&nbsp;</span>
-                <span class="hidden" id="inforechtsasso"></span>
+        <div class="left-aligned">
+            <div class="left-aligned2" style="align-items: flex-start">
+                <div class="iconlinksdiv"><img class="hidden" id="infolinksicon" src=""></div>
+                <div class="infotext">
+                    <span class="hidden" id="infolinksname"></span>
+                    <span class="hidden" id="infolinksdoppelpunkt">:&nbsp;</span>
+                    <span class="hidden" id="infolinksasso"></span>
+                </div>
             </div>
+
+            <div class="left-aligned2" style="align-items: center">
+                <div class="iconlinksdiv"><img class="hidden" id="infolinks2icon" src=""></div>
+                <div class="infotext">
+                    <span class="hidden" id="infolinks2name"></span>
+                    <span class="hidden" id="infolinks2doppelpunkt">:&nbsp;</span>
+                    <span class="hidden" id="infolinks2asso">test</span>
+                </div>
+            </div>  
         </div>
-        <div  class="right-aligned2" style="align-items: flex-end">
-            <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
-        <div class="infotext">
-            <span class="hidden" id="inforechts2name"></span>
-            <span class="hidden" id="inforechts2doppelpunkt">:&nbsp;</span>
-            <span class="hidden" id="inforechts2asso">test</span>
+        <div class="pos-room"><p class="raumname" id="raumname">Info</p></div>
+        <div class="right-aligned">
+            <div  class="right-aligned2" style="align-items: center">
+                <div class="iconrechtsdiv"><img class="hidden" id="inforechts2icon" src=""></div>
+                <div class="infotext">
+                    <span class="hidden" id="inforechtsname"></span>
+                    <span class="hidden" id="inforechtsdoppelpunkt">:&nbsp;</span>
+                    <span class="hidden" id="inforechtsasso"></span>
+                </div>
+            </div>
+            <div  class="right-aligned2" style="align-items: flex-end">
+                <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>
+                <div class="infotext">
+                    <span class="hidden" id="inforechts2name"></span>
+                    <span class="hidden" id="inforechts2doppelpunkt">:&nbsp;</span>
+                    <span class="hidden" id="inforechts2asso">test</span>
+                </div>
+            </div>  
         </div>
-        </div>  
-      </div>
     </div>
     <div class="hidden" id="menueleiste">
       <div class="menueleistelinks">
