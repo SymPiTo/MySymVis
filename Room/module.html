@@ -26,7 +26,7 @@
 }
 .maindiv2 {
   width: 100%;
-  height: 90%;
+  height: 100%;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -36,7 +36,7 @@
 
 .maindiv1 {
   width: 100%;
-  height: 100%;
+  height: 84%;
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -92,7 +92,7 @@
   /* Inhalt nach links ausrichten */
   text-align: left;
   /* Text linksbündig */
-  padding: 0px 0px 10px 0px;
+  padding: 0px 0px 0px 0px;
 
   padding-right: 30px;
   box-sizing: border-box;
@@ -100,13 +100,13 @@
 
 .center-aligned {
     display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: flex-start;
   /* Inhalt zentrieren (horizontal und vertikal) */
   padding: 0px 0px 0px 0px;
   width: 60%;
   height: 100%;
-  text-align: center;
+  text-align: starz;
   box-sizing: border-box;
 }
 
@@ -134,7 +134,7 @@
   /* Inhalt nach rechts ausrichten */
   text-align: right;
   /* Text rechtsbündig */
-  padding: 0px 0px 10px 0px;
+  padding: 0px 0px 0px 0px;
   padding-left: 30px;
   box-sizing: border-box;
 }
@@ -144,7 +144,7 @@
   -webkit-backdrop-filter: blur(10px) brightness(1);
   background-color: var(--infomenuehintergrundfarbe);
   width: 100%;
-
+  z-index: 2;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -152,7 +152,7 @@
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 5px;
-  padding-bottom: 5px;
+  padding-bottom: 0px;
   box-sizing: border-box;
   border-top: 0px dotted #28cdab;
     
@@ -787,15 +787,6 @@
                     <span class="hidden" id="infolinksasso"></span>
                 </div>
             </div>
-
-            <div class="left-aligned2" style="align-items: center">
-                <div class="iconlinksdiv"><img class="hidden" id="infolinks2icon" src=""></div>
-                <div class="infotext">
-                    <span class="hidden" id="infolinks2name"></span>
-                    <span class="hidden" id="infolinks2doppelpunkt">:&nbsp;</span>
-                    <span class="hidden" id="infolinks2asso">test</span>
-                </div>
-            </div>  
         </div>
         <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
         <div class="right-aligned">
@@ -807,14 +798,6 @@
                     <span class="hidden" id="inforechtsasso"></span>
                 </div>
             </div>
-            <div  class="right-aligned2" style="align-items: flex-end">
-                <div class="iconrechtsdiv"><img class="hidden" id="inforechts2icon" src=""></div>
-                <div class="infotext">
-                    <span class="hidden" id="inforechts2name"></span>
-                    <span class="hidden" id="inforechts2doppelpunkt">:&nbsp;</span>
-                    <span class="hidden" id="inforechts2asso">test</span>
-                </div>
-            </div>  
         </div>
     </div>
 
