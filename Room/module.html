@@ -148,7 +148,8 @@
   z-index: 2;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
@@ -305,7 +306,7 @@
             box-sizing: border-box;
             height: 100%;
             white-space: nowrap;
-            
+             
         }
 
         .schalter1 {
@@ -832,8 +833,8 @@
         <img class="hidden" id="info5icon" src="">
         <p class="hidden" id="info5name"></p>
         <p class="hidden" id="info5doppelpunkt">:&nbsp;</p>
-        <p class="hidden" id="info5asso"></p></div>
-
+        <p class="hidden" id="info5asso"></p>
+      </div>
       <div class="menueleisterechts">
 
         <button id="schalter1" class="hidden" onclick="requestAction('Schalter1', 1);">
@@ -870,6 +871,6 @@
             <p class="hidden" id="schalter5doppelpunkt">:&nbsp;</p>
             <p class="hidden" id="schalter5asso"></p>
         </button>
-    </div>
+      </div>
     </div>
   </div>
