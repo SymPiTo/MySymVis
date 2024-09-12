@@ -1,6 +1,10 @@
 <?php
+
+require_once(__DIR__ . "/libs/MyHelper.php");
 class TileRoom extends IPSModule
 {
+
+    use DebugHelper;
     public function Create()
     {
         // Nie diese Zeile löschen!
@@ -286,7 +290,8 @@ class TileRoom extends IPSModule
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info1'))) {
             $result['info1'] = $this->CheckAndGetValueFormatted('Info1');
-    $result['info1iconcolor'] =  $this->GetColor($this->ReadPropertyInteger('Info1'));
+$result['info1iconcolor'] =  $this->GetColor($this->ReadPropertyInteger('Info1'));
+$this->SendDebug("info1IconColor",$result['info1iconcolor'],0);
             if ($this->ReadPropertyBoolean('Info1NameSwitch')) $result['info1name'] = IPS_GetName($this->ReadPropertyInteger('Info1'));
             if ($this->ReadPropertyBoolean('Info1IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info1'), $this->ReadPropertyBoolean('Info1VarIconSwitch')) !== "Transparent") {
                 $result['info1icon'] = $this->GetIcon($this->ReadPropertyInteger('Info1'), $this->ReadPropertyBoolean('Info1VarIconSwitch'));
@@ -294,8 +299,10 @@ class TileRoom extends IPSModule
             if ($this->ReadPropertyBoolean('Info1AssoSwitch')) $result['info1asso'] = $this->CheckAndGetValueFormatted('Info1');
         }
         if (IPS_VariableExists($this->ReadPropertyInteger('Info2'))) {
+
             $result['info2'] = $this->CheckAndGetValueFormatted('Info2');
 $result['info2iconcolor'] =  $this->GetColor($this->ReadPropertyInteger('Info2'));
+$this->SendDebug("info2Iconcolor",$result['info2iconcolor'],0);
             if ($this->ReadPropertyBoolean('Info2NameSwitch')) $result['info2name'] = IPS_GetName($this->ReadPropertyInteger('Info2'));
             if ($this->ReadPropertyBoolean('Info2IconSwitch') && $this->GetIcon($this->ReadPropertyInteger('Info2'), $this->ReadPropertyBoolean('Info2VarIconSwitch')) !== "Transparent") {
                 $result['info2icon'] = $this->GetIcon($this->ReadPropertyInteger('Info2'), $this->ReadPropertyBoolean('Info2VarIconSwitch'));
