@@ -9,54 +9,8 @@ TRAITS: MyHelper
 
 * DecodeUTF8
  
------------------------------------------------------------------------------- - * /
-trait LogErrorToFile
-{
-    /**
-    * Ergänzt SendDebug um die Möglichkeit Objekte und Array auszugeben.
-    *
-    * @access protected
-    * @param string $Message Nachricht für Data.
-    * @param WebSocketFrame | mixed $Data Daten für die Ausgabe.
-    * @return int $Format Ausgabeformat für Strings.
-    */
-    protected function ModErrorLog($ModName, $text, $array) {
-        {
-            $path = "/home/pi/pi-share/"; 
-            $file = $ModName.".log";
-            
-            $datum = date("d.m.Y");
-            $uhrzeit = date("H:i");
-            $logtime = $datum." - ".$uhrzeit." Uhr";
-            if (!$array) {
+------------------------------------------------------------------------------- */
 
-                $array = '-';
-            }
-
-            //prüfen, ob file vorhanden.
-            //if (file_exists($path.$filename)) {
-
-
-
-                if (($FileHandle = fopen($path.$file, "a")) = == false) {
-                    //SetValue($ID_OutEnabled, false);
-                    Exit;
-                }
-                if (is_array($array)) {
-                    //$comma_seperated=implode("\r\n", $array);
-                    $comma_seperated = print_r($array, true);
-                }
-                else {
-                    $comma_seperated = $array;
-                }
-                fwrite($FileHandle, $logtime.": ".$text.": ");
-                fwrite($FileHandle, $comma_seperated."\r\n");
-                fclose($FileHandle);
-                //
-            }
-        }
-    }
-}
 
 /**
 * Helper class for the debug output.
@@ -78,12 +32,12 @@ trait DebugHelper {
     {
         if (is_object($data)) {
             foreach ($data as $key => $value) {
-                $this - >SendDebug($msg.':'.$key, $value, 1);
+                $this->SendDebug($msg.':'.$key, $value, 1);
             }
         }
         elseif (is_array($data)) {
             foreach ($data as $key => $value) {
-                $this - >SendDebug($msg.':'.$key, $value, 0);
+                $this->SendDebug($msg.':'.$key, $value, 0);
             }
         }
         elseif (is_bool($data)) {
@@ -149,7 +103,7 @@ trait NMapHelper {
         $up = strpos($output, "up");
         $down = strpos($output, "down");
 
-        if ($up ! = false) {
+        if($up != false) {
             if ($type) {
                 $result = true;
             }
@@ -157,7 +111,7 @@ trait NMapHelper {
                 $result = "on";
             }
         }
-        elseif ($down ! = false) {
+        elseif ($down != false) {
             if ($type) {
                 $result = false; //closed Textstring gefunden
             }
@@ -243,7 +197,7 @@ trait ProfileHelper {
         }
         else {
             $profile = IPS_GetVariableProfile($name);
-            if ($profile['ProfileType'] ! = $vartype) {
+            if ($profile['ProfileType'] != $vartype) {
                 throw new Exception('Variable profile type does not match for profile '.$name);
             }
         }
@@ -259,10 +213,10 @@ trait ProfileHelper {
     */
     protected function RegisterProfileBoolean($name, $icon, $prefix, $suffix, $asso)
     {
-        $this - >RegisterProfileType($name, vtBoolean);
+        $this->RegisterProfileType($name, vtBoolean);
         IPS_SetVariableProfileIcon($name, $icon);
         IPS_SetVariableProfileText($name, $prefix, $suffix);
-        if (($asso ! = = null) && (count($asso) !== 0)) {
+        if (($asso !== null) && (count($asso) !== 0)) {
             foreach ($asso as $ass) {
                 IPS_SetVariableProfileAssociation($name, $ass[0], $ass[1], $ass[2], $ass[3]);
             }
@@ -283,7 +237,7 @@ trait ProfileHelper {
     */
     protected function RegisterProfileInteger($name, $icon, $prefix, $suffix, $minvalue, $maxvalue, $stepsize, $digits, $asso)
     {
-        $this - >RegisterProfileType($name, VARIABLETYPE_INTEGER);
+        $this->RegisterProfileType($name, VARIABLETYPE_INTEGER);
         IPS_SetVariableProfileIcon($name, $icon);
         IPS_SetVariableProfileText($name, $prefix, $suffix);
         IPS_SetVariableProfileDigits($name, $digits);
@@ -294,7 +248,7 @@ trait ProfileHelper {
         }
         */
         IPS_SetVariableProfileValues($name, $minvalue, $maxvalue, $stepsize);
-        if (($asso ! = = null) && (count($asso) !== 0)) {
+        if (($asso !== null) && (count($asso) !== 0)) {
             foreach ($asso as $ass) {
                 IPS_SetVariableProfileAssociation($name, $ass[0], $ass[1], $ass[2], $ass[3]);
             }
@@ -315,16 +269,16 @@ trait ProfileHelper {
     */
     protected function RegisterProfileFloat($name, $icon, $prefix, $suffix, $minvalue, $maxvalue, $stepsize, $digits, $asso)
     {
-        $this - >RegisterProfileType($name, VARIABLETYPE_FLOAT);
+        $this->RegisterProfileType($name, VARIABLETYPE_FLOAT);
         IPS_SetVariableProfileIcon($name, $icon);
         IPS_SetVariableProfileText($name, $prefix, $suffix);
         IPS_SetVariableProfileDigits($name, $digits);
-        if (($asso ! = = null) && (count($asso) !== 0)) {
+        if (($asso !== null) && (count($asso) !== 0)) {
             $minvalue = 0;
             $maxvalue = 0;
         }
         IPS_SetVariableProfileValues($name, $minvalue, $maxvalue, $stepsize);
-        if (($asso ! = = null) && (count($asso) !== 0)) {
+        if (($asso !== null) && (count($asso) !== 0)) {
             foreach ($asso as $ass) {
                 IPS_SetVariableProfileAssociation($name, $ass[0], $ass[1], $ass[2], $ass[3]);
             }
@@ -340,7 +294,7 @@ trait ProfileHelper {
     */
     protected function RegisterProfileString($name, $icon, $prefix, $suffix)
     {
-        $this - >RegisterProfileType($name, IPSVarType::VARIABLETYPE_STRING);
+        $this->RegisterProfileType($name, IPSVarType::VARIABLETYPE_STRING);
         IPS_SetVariableProfileText($name, $prefix, $suffix);
         IPS_SetVariableProfileIcon($name, $icon);
     }
@@ -386,7 +340,7 @@ trait TimerHelper
         }
         if (!$id) {
             $id = IPS_CreateEvent(1);
-            IPS_SetParent($id, $this - >InstanceID);
+            IPS_SetParent($id, $this->InstanceID);
             IPS_SetIdent($id, $ident);
         }
         IPS_SetName($id, $name);
@@ -424,13 +378,13 @@ trait TimerHelper
 trait BuffHelper {
     # Wert einer Eigenschaft aus den InstanceBuffer lesen.
     public function __get($name) {
-        return unserialize($this - >GetBuffer($name));
+        return unserialize($this->GetBuffer($name));
     }
 
     # Wert einer Eigenschaft in den InstanceBuffer schreiben.
     public function __set($name, $value) {
         $Data = serialize($value);
-        $this - >SetBuffer($name, $Data);
+        $this->SetBuffer($name, $Data);
     }
 }
 
@@ -490,7 +444,7 @@ trait ModuleHelper {
     #-------------------------------------------------------------------------------#
     protected function ModuleUp($ModuleSwitchedOn) {
         //Only call this in READY state. On startup the WebHook instance might not be available yet
-        if ((IPS_GetKernelRunlevel() == KR_READY) & ($ModuleSwitchedOn)) {
+        if ((IPS_GetKernelRunlevel() == KR_READY) && ($ModuleSwitchedOn)) {
             #Kernel ist hochgefahren und Module ist eingeschaltet 
             return true;
         }
@@ -510,20 +464,20 @@ trait ModuleHelper {
     #  Returns:     none                                                                                   #
     #------------------------------------------------------------------------------------------------------#
     private function RegisterCategory($ident, $catName ) {
-        $KategorieID = @IPS_GetCategoryIDByName($catName, $this - >InstanceID);
-        if ($KategorieID = == false) {
+        $KategorieID = @IPS_GetCategoryIDByName($catName, $this->InstanceID);
+        if ($KategorieID === false) {
             // Anlegen einer neuen Kategorie mit dem Namen $catName
             $CatID = IPS_CreateCategory(); // Kategorie anlegen
             IPS_SetName($CatID, $catName); // Kategorie benennen
             IPS_SetIdent($CatID, $ident);
-            IPS_SetParent($CatID, $this - >InstanceID); // Kategorie einsortieren unterhalb der der Instanz
+            IPS_SetParent($CatID, $this->InstanceID); // Kategorie einsortieren unterhalb der der Instanz
         }
         return $KategorieID;
     }
 
     protected function CreateCategoryByIdent($Parentid, $ident, $name) {
         $cid = @IPS_GetObjectIDByIdent($ident, $Parentid);
-        if ($cid = == false) {
+        if ($cid === false) {
             $cid = IPS_CreateCategory();
             IPS_SetParent($cid, $Parentid);
             IPS_SetName($cid, $name);
@@ -547,7 +501,7 @@ trait ModuleHelper {
     #-------------------------------------------------------------------------------------------------------#
     protected function CreateLink(string $Name, $ParentID, $LinkedVariableID) {
         $LinkID = @IPS_GetLinkIDByName($Name, $ParentID);
-        if ($LinkID = == false) {
+        if ($LinkID === false) {
             // Anlegen eines neuen Links mit dem Namen "Regenerfassung"
             $LinkID = IPS_CreateLink(); // Link anlegen
             IPS_SetName($LinkID, $Name); // Link benennen
@@ -585,7 +539,7 @@ trait EventHelper {
     #----------------------------------------------------------------------------------------------#
     protected function RegisterVarEvent($Name, $Ident, $Typ, $ParentID, $Position, $trigger, $var, $cmd) {
         $eid = @IPS_GetEventIDByName($Name, $ParentID);
-        if ($eid = == false) {
+        if ($eid === false) {
             //we need to create a new one
             $EventID = IPS_CreateEvent($Typ);
             IPS_SetParent($EventID, $ParentID);

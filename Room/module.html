@@ -248,7 +248,7 @@
             padding-right: 1px;
             padding-left: 1px;
         }
-        .infoicon, .schaltericon {
+        .infoicon, .info1icon, .info2icon, .schaltericon {
             color: #ffffff;
             width: 1.3em;
             opacity: 1;
@@ -256,21 +256,11 @@
             padding-left: 1px;
         }
         .info1icon {
-            background-color: var(--info1iconcolor);
-            color: #ffffff;
-            width: 1.3em;
-            opacity: 1;
-            padding-right: 1px;
-            padding-left: 1px;
+            background-color: var(--info1color);
         }
 
         .info2icon {
-            background-color: var(--info2iconcolor);
-            color: #ffffff;
-            width: 1.3em;
-            opacity: 1;
-            padding-right: 1px;
-            padding-left: 1px;
+            background-color: red;
         }
 
 
@@ -627,13 +617,14 @@
                     case 'schalter5breite':
                         root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
                         break; 
-                    case 'info1iconcolor':
-                        root.style.setProperty('--info1iconcolor', decodedData[parameter]);
+                    case 'info1color':
+                        root.style.setProperty('--info1color', decodedData[parameter]);
 console.log('info1iconcolor Parameter:', parameter, 'Wert:', decodedData[parameter]);
                         break;
-                    case 'info2iconcolor':
+                    case 'info2color':
+                        root.style.setProperty('--info2color', decodedData[parameter]);
 console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[parameter]);
-                        root.style.setProperty('--info2iconcolor', decodedData[parameter]);
+
                         break;
                     case 'schalter1color':
                         root.style.setProperty('--schalter1color', decodedData[parameter]);
