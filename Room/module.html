@@ -260,7 +260,7 @@
         }
 
         .info2icon {
-            background-color: red;
+            background-color: var(--info2color);
         }
 
 
@@ -313,24 +313,35 @@
             box-sizing: border-box;
             height: 100%;
             white-space: nowrap;
-            
+            background-color: transparent;
              
         }
 
-
+        .schalter1icon {
+            
+            background-color: var(--schalter1color);
+        }
+        .schalter2icon {
+            
+            background-color: var(--schalter2color);
+        }
+        .schalter3icon {
+            
+            background-color: var(--schalter3color);
+        }
 
         .schalter1 {
-            background-color: var(--schalter1color);
+            
             min-width: var(--schalter1breite);
             
         }
         .schalter2 {
-            background-color: var(--schalter2color);
+             
             min-width: var(--schalter2breite);
             ;
         }
         .schalter3 {
-            background-color: var(--schalter3color);
+             
             min-width: var(--schalter3breite);
            
         }
@@ -481,8 +492,9 @@
                         break;
                     case 'schalter1icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
+                        element.className = 'schalter1icon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
+                         
                         schalter1.className = 'schalter1';
                         
                         }
@@ -507,7 +519,7 @@
                         break;
                     case 'schalter2icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
+                        element.className = 'schalter2icon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         schalter2.className = 'schalter2';
                         }
@@ -532,7 +544,7 @@
                         break;
                     case 'schalter3icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
+                        element.className = 'schalter3icon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         schalter3.className = 'schalter3';
                         }
@@ -557,7 +569,7 @@
                         break;
                     case 'schalter4icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
+                        element.className = 'schalter4icon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         schalter4.className = 'schalter4';
                         }
@@ -582,7 +594,7 @@
                         break;
                     case 'schalter5icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'schaltericon';
+                        element.className = 'schalter5icon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         schalter5.className = 'schalter5';
                         }
@@ -619,11 +631,11 @@
                         break; 
                     case 'info1color':
                         root.style.setProperty('--info1color', decodedData[parameter]);
-console.log('info1iconcolor Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
                         break;
                     case 'info2color':
                         root.style.setProperty('--info2color', decodedData[parameter]);
-console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[parameter]);
+
 
                         break;
                     case 'schalter1color':
@@ -684,7 +696,6 @@ console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[paramet
                     case 'info1icon':
                         if (decodedData[parameter] !== "Transparent") {
                         element.className = 'info1icon';
-                        
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         }
@@ -710,7 +721,7 @@ console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[paramet
                         break;
                     case 'info2icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'infoicon';
+                        element.className = 'info2icon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         if (info3asso != "" || info4asso != "" || info5asso != "") info2trenner.className = 'infotrenner';
                         }
@@ -734,7 +745,7 @@ console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[paramet
                         if (!document.getElementById("info3name").classList.contains("hidden")) info3doppelpunkt.className = 'info3asso';
                         break;
                     case 'info3icon':
-                        element.className = 'infoicon';
+                        element.className = 'info3icon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
                     case 'info3name':
@@ -756,7 +767,7 @@ console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[paramet
                         if (!document.getElementById("info4name").classList.contains("hidden")) info4doppelpunkt.className = 'info4asso';
                         break;
                     case 'info4icon':
-                        element.className = 'infoicon';
+                        element.className = 'info4icon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
                     case 'info4name':
@@ -777,7 +788,7 @@ console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[paramet
                         if (!document.getElementById("info5name").classList.contains("hidden")) info5doppelpunkt.className = 'info5asso';
                         break;
                     case 'info5icon':
-                        element.className = 'infoicon';
+                        element.className = 'info5icon';
                         element.src = '../../legacy/img/icons/'+decodedData[parameter]+'.svg';
                         break;
                     case 'info5name':
