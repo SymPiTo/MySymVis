@@ -145,7 +145,6 @@
   -webkit-backdrop-filter: blur(10px) brightness(1);
   background-color: var(--infomenuehintergrundfarbe);
   width: 100%;
-  z-index: 2;
   position: relative;
   display: flex;
   flex-direction: row;
@@ -256,6 +255,25 @@
             padding-right: 1px;
             padding-left: 1px;
         }
+        .info1icon {
+            background-color: var(--info1iconcolor);
+            color: #ffffff;
+            width: 1.3em;
+            opacity: 1;
+            padding-right: 1px;
+            padding-left: 1px;
+        }
+
+        .info2icon {
+            background-color: var(--info2iconcolor);
+            color: #ffffff;
+            width: 1.3em;
+            opacity: 1;
+            padding-right: 1px;
+            padding-left: 1px;
+        }
+
+
         .infotrenner, .infotrennerstart, .infolinkstrenner {
             height: 60%;
             width: 1px;
@@ -279,12 +297,11 @@
         }
 
         .icon {
-            color: #ffffff;
+            color: white;
             font-size: 3em;
             opacity: 0.5;
         }
         .iconlinks, .iconrechts {
-
             height: calc(var(--infofontsize) * 2.5);;
         }
 
@@ -306,20 +323,26 @@
             box-sizing: border-box;
             height: 100%;
             white-space: nowrap;
+            
              
         }
+
+
 
         .schalter1 {
             background-color: var(--schalter1color);
             min-width: var(--schalter1breite);
+            
         }
         .schalter2 {
             background-color: var(--schalter2color);
             min-width: var(--schalter2breite);
+            ;
         }
         .schalter3 {
             background-color: var(--schalter3color);
             min-width: var(--schalter3breite);
+           
         }
         .schalter4 {
             background-color: var(--schalter4color);
@@ -342,7 +365,7 @@
 
             const decodedData = JSON.parse(data);
             
-            //console.log('Decodierte Daten:', decodedData);
+            console.log('Decodierte Daten:', decodedData);
 
             for (const parameter in decodedData) {
                 //console.log('Aktueller Parameter:', parameter, 'Wert:', decodedData[parameter]);
@@ -471,6 +494,7 @@
                         element.className = 'schaltericon';
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         schalter1.className = 'schalter1';
+                        
                         }
                         break;
                     case 'schalter1name':
@@ -603,6 +627,14 @@
                     case 'schalter5breite':
                         root.style.setProperty('--schalter5breite', decodedData[parameter] + 'px');
                         break; 
+                    case 'info1iconcolor':
+                        root.style.setProperty('--info1iconcolor', decodedData[parameter]);
+console.log('info1iconcolor Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                        break;
+                    case 'info2iconcolor':
+console.log('info2iconcolor Parameter:', parameter, 'Wert:', decodedData[parameter]);
+                        root.style.setProperty('--info2iconcolor', decodedData[parameter]);
+                        break;
                     case 'schalter1color':
                         root.style.setProperty('--schalter1color', decodedData[parameter]);
                         break;
@@ -660,7 +692,8 @@
                         break;
                     case 'info1icon':
                         if (decodedData[parameter] !== "Transparent") {
-                        element.className = 'infoicon';
+                        element.className = 'info1icon';
+                        
                         element.src = '../../legacy/img/icons/' + decodedData[parameter] + '.svg';
                         if (info2asso != "" || info3asso != "" || info4asso != "" || info5asso != "") info1trenner.className = 'infotrenner';
                         }
