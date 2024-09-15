@@ -11,7 +11,7 @@
         /* Ich passe margin vom Body an und überschreibe somit das Standardpadding der Darstellung zu den Seiten */
         /* <script src="https://kit.fontawesome.com/7da29d74de.js" crossorigin="anonymous"></script> */
         :root {
-            --background-image: #000000;
+           /* --background-image: #000000; */
         }
 
         body {
@@ -19,7 +19,7 @@
             position: fixed;
             width: 100%;
             height: 100%;
-            background-color: var(--hintergrundfarbe);
+            
             
         }
 .hidden {
@@ -33,6 +33,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  background-color: var(--hintergrundfarbe);
 }
 
 .maindiv1 {
@@ -46,6 +47,7 @@
   align-content: flex-start;
   box-sizing: border-box;
   padding: 0px 0px 0px 0px;
+  
 }
 
 
@@ -80,7 +82,7 @@
   /* Text linksbündig */
   padding: 0px 0px 10px 0px;
   width: 20%;
-  height: 100%;
+  height: 80%;
   padding-left: 20px;
   box-sizing: border-box;
 }
@@ -106,8 +108,8 @@
   /* Inhalt zentrieren (horizontal und vertikal) */
   padding: 0px 0px 30px 0px;
   width: 60%;
-  height: 100%;
-  text-align: starz;
+  height: 80%;
+  text-align: start;
   box-sizing: border-box;
 }
 
@@ -122,7 +124,7 @@
   /* Text rechtsbündig */
   padding: 0px 0px 10px 0px;
   width: 20%;
-  height: 100%;
+  height: 80%;
   padding-right: 20px;
   box-sizing: border-box;
 }
@@ -145,6 +147,8 @@
   -webkit-backdrop-filter: blur(10px) brightness(1);
   background-color: var(--infomenuehintergrundfarbe);
   width: 100%;
+  height:var(--infomenuefontsize);
+  
   position: relative;
   display: flex;
   flex-direction: row;
@@ -152,7 +156,7 @@
   align-items: center;
   padding-left: 20px;
   padding-right: 20px;
-  padding-top: 5px;
+  padding-top: 0px;
   padding-bottom: 0px;
   box-sizing: border-box;
   border-top: 0px dotted #28cdab;
@@ -191,6 +195,7 @@
         .inforechtsname {
             font-size: var(--infofontsize);
             color: var(--infoschriftfarbe);
+            
             opacity: 1;
             white-space: nowrap;
         }
@@ -208,7 +213,7 @@
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
-            font-size: var(--infomenuefontsize);
+           /* font-size: var(--infomenuefontsize);*/
             color: var(--infomenueschriftfarbe);
         }
         .info1name, 
@@ -219,7 +224,8 @@
             font-size: 1em;
             padding-right: 1px;
             padding-left: 1px;
-            font-size: var(--infomenuefontsize);
+           
+           /* font-size: var(--infomenuefontsize);*/
             color: var(--infomenueschriftfarbe);
         }
 
@@ -305,20 +311,20 @@
             margin-bottom: 0px;
             margin-left: 10px;
             padding: 5px;
-            color: white;
+            
             border-radius: 5px;
             cursor: pointer;
             border-width: 0px;
-            font-size: var(--schalterschriftgroesse);
+            /*font-size: var(--schalterschriftgroesse);*/
             box-sizing: border-box;
             height: 100%;
             white-space: nowrap;
             background-color: transparent;
-             
+            color : white; 
         }
 
         .schalter1icon {
-            
+           
             background-color: var(--schalter1color);
         }
         .schalter2icon {
@@ -331,7 +337,7 @@
         }
 
         .schalter1 {
-            
+             
             min-width: var(--schalter1breite);
             
         }

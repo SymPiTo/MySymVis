@@ -458,9 +458,9 @@ class TileRoom extends IPSModule
             }
             else
             {
-                $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
-                $result['image1'] = $imageContent;
+                //$imageContent = 'data:image/png;base64,';
+                //$imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/placeholder.png'));
+                //$result['image1'] = $imageContent;
             }
 
 
