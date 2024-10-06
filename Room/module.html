@@ -103,6 +103,7 @@
 
 .center-aligned {
     display: flex;
+    flex-direction: column;
   justify-content: center;
   align-items: center;
   /* Inhalt zentrieren (horizontal und vertikal) */
@@ -113,6 +114,32 @@
   box-sizing: border-box;
 }
 
+.oben {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 90%;
+  text-align: start;
+  box-sizing: border-box;
+
+}
+.unten {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 10%;
+  font-size: 18px;
+  color: yellow;
+  animation: blinker 2s step-start infinite;
+
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
 
 .right-aligned {
     display: flex;
@@ -487,9 +514,6 @@
                         inforechts2name.textContent = decodedData[parameter];
                         }
                         break; 
-
-
-
                     case 'schalter1asso':
                         element.className = 'schalter1asso';
                         schalter1.className = 'schalter1';
@@ -685,6 +709,9 @@
                     case 'raumname':
                         element.textContent = decodedData[parameter];
                         break;
+                    case 'message':
+                        element.textContent = decodedData[parameter];
+                        break;
                     case 'raumnameschriftgroesse':
                         root.style.setProperty('--raumnamefontsize', decodedData[parameter] + 'em');
                         break;
@@ -831,7 +858,10 @@
                 </div>
             </div>
         </div>
-        <div class="center-aligned"><p class="raumname" id="raumname">Info</p></div>
+        <div class="center-aligned">
+            <div class="oben"><p class="raumname" id="raumname">Info</p></div>
+            <div class="unten"><p id="message">Info</p></div>
+        </div>
         <div class="right-aligned">
             <div  class="right-aligned2" style="align-items: center">
                 <div class="iconrechtsdiv"><img class="hidden" id="inforechtsicon" src=""></div>

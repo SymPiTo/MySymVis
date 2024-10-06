@@ -93,6 +93,19 @@
                                     "items": [
                                         {
                                             "type": "SelectVariable",
+                                            "name": "message",
+                                            "caption": "Message:",
+                                            "validVariableTypes": [
+                                                3
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    "type": "RowLayout",
+                                    "items": [
+                                        {
+                                            "type": "SelectVariable",
                                             "name": "InfoLinks",
                                             "caption": "Variable left 1:",
                                             "validVariableTypes": []

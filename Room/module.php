@@ -119,6 +119,8 @@ class TileRoom extends IPSModule
         $this->RegisterPropertyBoolean('Schalter3AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter4AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter5AssoSwitch', 1);
+        $this->RegisterPropertyString('Message', '');
+        
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
     }
@@ -412,6 +414,7 @@ class TileRoom extends IPSModule
             $result['infolinks2altname'] =  $this->ReadPropertyString('InfoLinks2AltName');
             $result['inforechts2altname'] =  $this->ReadPropertyString('InfoRechts2AltName');    
             $result['infomenueswitch'] =  $this->ReadPropertyBoolean('InfoMenueSwitch');   
+            $result['message'] =  $this->ReadPropertyString('Message');
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
@@ -464,7 +467,7 @@ class TileRoom extends IPSModule
             }
 
 
-
+            $this->SendDebug("result",$result,0);
         return json_encode($result);
     }
     private function CheckAndGetValueFormatted($property) {
