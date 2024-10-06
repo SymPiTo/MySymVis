@@ -1,5 +1,5 @@
 <?php
-class TileVisuImageButtons extends IPSModule
+class TileButtons extends IPSModule
 {
     public function Create()
     {
@@ -305,7 +305,7 @@ class TileVisuImageButtons extends IPSModule
             }
             else{
                 $imageContent = 'data:image/png;base64,';
-                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/../imgs/kachelhintergrund1.png'));
+                $imageContent .= base64_encode(file_get_contents(__DIR__ . '/assets/kachelhintergrund1.png'));
 
                 if ($this->ReadPropertyBoolean('BG_Off')) {
                     $result['bgimage'] = $imageContent;

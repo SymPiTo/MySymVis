@@ -81,20 +81,20 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding-left: 20px;
-            padding-right: 20px;
-            padding-top: 5px;
-            padding-bottom: 5px;
+            padding-left: 1px;
+            padding-right: 1px;
+            padding-top: 1px;
+            padding-bottom: 1px;
             box-sizing: border-box;
             border-top: 0px dotted #28cdab;
-            margin-top: 40px;
+            margin-top: 1ch;
 
         }
 
         .menueleisterechts {
             display: flex;
             flex-direction: row;
-            align-items: stretch;
+            /*align-items: stretch;*/
             justify-content: center;
             box-sizing: border-box;
             flex-wrap: wrap;
@@ -154,40 +154,47 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: center;
-            margin-top: 8px;
-            margin-bottom: 8px;
+            justify-content: left;
+            height: 45px;
+            margin-top: 5px;
+            margin-bottom: 5px;
             margin-left: 5px;
             margin-right: 5px;
-            padding: 7px;
-            border-radius: 5px;
+            padding: 2px;
+            border-radius: 10px;
             cursor: pointer;
             border-width: 0px;
             color: #ffffff;
             font-size: var(--schriftgroesse);
             box-sizing: border-box;
             white-space: nowrap;
-
+            background-color: #14cdde; /* Green */
+            border: 1px solid black;
+            box-shadow: 0 8px 16px 0 rgba(200, 200, 200, 0.2), 0 6px 20px 0 rgba(200,200,200, 0.19);
         }
 
+
         .schalter1 {
-            background-color: var(--schalter1color);
-            min-width: var(--schalter1breite);
+        width: 45%;
+       
+           
         }
 
         .schalter2 {
-            background-color: var(--schalter2color);
-            min-width: var(--schalter2breite);
+        
+            width: 45%;
+         
         }
 
         .schalter3 {
-            background-color: var(--schalter3color);
-            min-width: var(--schalter3breite);
+            width: 45%;
+         
+            
         }
 
         .schalter4 {
-            background-color: var(--schalter4color);
-            min-width: var(--schalter4breite);
+            width: 45%;
+          
         }
 
         .schalter5 {
