@@ -414,7 +414,7 @@ class TileRoom extends IPSModule
             $result['infolinks2altname'] =  $this->ReadPropertyString('InfoLinks2AltName');
             $result['inforechts2altname'] =  $this->ReadPropertyString('InfoRechts2AltName');    
             $result['infomenueswitch'] =  $this->ReadPropertyBoolean('InfoMenueSwitch');   
-            $result['message'] =  $this->ReadPropertyString('Message');
+            if($this->ReadPropertyString('Message')) $result['message'] =  getvalue($this->ReadPropertyString('Message'));
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');

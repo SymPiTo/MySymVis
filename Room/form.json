@@ -93,7 +93,7 @@
                                     "items": [
                                         {
                                             "type": "SelectVariable",
-                                            "name": "message",
+                                            "name": "Message",
                                             "caption": "Message:",
                                             "validVariableTypes": [
                                                 3
