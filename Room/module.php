@@ -119,7 +119,7 @@ class TileRoom extends IPSModule
         $this->RegisterPropertyBoolean('Schalter3AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter4AssoSwitch', 1);
         $this->RegisterPropertyBoolean('Schalter5AssoSwitch', 1);
-        $this->RegisterPropertyString('Message', '');
+        $this->RegisterPropertyInteger('Message', 0);
         
         // Visualisierungstyp auf 1 setzen, da wir HTML anbieten möchten
         $this->SetVisualizationType(1);
@@ -150,7 +150,7 @@ class TileRoom extends IPSModule
             $this->ReadPropertyInteger('Schalter3'),
             $this->ReadPropertyInteger('Schalter4'),
             $this->ReadPropertyInteger('Schalter5'),
-            $this->ReadPropertyString('Message')
+            $this->ReadPropertyInteger('Message')
         ];
         $refs = $this->GetReferenceList();
             foreach($refs as $ref) {
@@ -173,7 +173,7 @@ class TileRoom extends IPSModule
         }
 
 
-        foreach (['bgImage', 'InfoLinks', 'InfoLinks2', 'InfoRechts', 'InfoRechts2', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Info1', 'Info2', 'Info3', 'Info4', 'Info5'] as $VariableProperty)        {
+        foreach (['bgImage', 'InfoLinks', 'InfoLinks2', 'InfoRechts', 'InfoRechts2', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Info1', 'Info2', 'Info3', 'Info4', 'Info5', 'Message'] as $VariableProperty)        {
             $this->RegisterMessage($this->ReadPropertyInteger($VariableProperty), VM_UPDATE);
         }
 
@@ -184,7 +184,7 @@ class TileRoom extends IPSModule
     public function MessageSink($TimeStamp, $SenderID, $Message, $Data)
     {
 
-        foreach (['bgImage', 'InfoLinks', 'InfoLinks2', 'InfoRechts', 'InfoRechts2', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Info1', 'Info2', 'Info3', 'Info4', 'Info5'] as $index => $VariableProperty)
+        foreach (['bgImage', 'InfoLinks', 'InfoLinks2', 'InfoRechts', 'InfoRechts2', 'Schalter1', 'Schalter2', 'Schalter3', 'Schalter4', 'Schalter5', 'Info1', 'Info2', 'Info3', 'Info4', 'Info5','Message'] as $index => $VariableProperty)
         {
             if ($SenderID === $this->ReadPropertyInteger($VariableProperty))
             {
@@ -201,7 +201,7 @@ class TileRoom extends IPSModule
                             //Farbe abrufen
                             $result[$VariableProperty . 'Color'] = $this->GetColor($this->ReadPropertyInteger($VariableProperty));
                             $result[$VariableProperty.'iconcolor'] =  $this->GetColor($this->ReadPropertyInteger($VariableProperty));
-                            if($VariableProperty != 'bgImage')
+                            if($VariableProperty != 'bgImage' and $VariableProperty != 'Message')
                             {
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'NameSwitch')) $result[$VariableProperty . 'name'] = IPS_GetName($this->ReadPropertyInteger($VariableProperty));
                                 if ($this->ReadPropertyBoolean($VariableProperty . 'IconSwitch') && $this->GetIcon($this->ReadPropertyInteger($VariableProperty), $this->ReadPropertyBoolean($VariableProperty . 'VarIconSwitch')) !== "Transparent") {
@@ -415,7 +415,9 @@ class TileRoom extends IPSModule
             $result['infolinks2altname'] =  $this->ReadPropertyString('InfoLinks2AltName');
             $result['inforechts2altname'] =  $this->ReadPropertyString('InfoRechts2AltName');    
             $result['infomenueswitch'] =  $this->ReadPropertyBoolean('InfoMenueSwitch');   
-            if($this->ReadPropertyString('Message')) $result['message'] =  getvalue($this->ReadPropertyString('Message'));
+            if(IPS_VariableExists($this->ReadPropertyInteger('Message'))) {
+                $result['message'] =  getvalue($this->ReadPropertyInteger('Message'));
+            };
             
             // Prüfe vorweg, ob ein Bild ausgewählt wurde
             $imageID = $this->ReadPropertyInteger('bgImage');
